@@ -33,7 +33,7 @@ Example:
                 ],
 
                 properties: {
-                    output: {
+                    constructor: {
                         type: Object,
                         readOnly: true,
                         notify: true
@@ -61,7 +61,7 @@ Example:
                         throw Error("Either 'authToken', 'searchId' or 'apiBaseUrl' is empty!");
                     }
 
-                    this._setOutput({
+                    this._setConstructor({
                         authToken: this.authToken, 
                         searchId: this.searchId, 
                         apiBaseUrl: this.apiBaseUrl
