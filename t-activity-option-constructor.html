@@ -6,11 +6,11 @@ A comment describing this element
 
 Example:
 
-    <t-activity-result-constructor></t-activity-result-constructor>    
+    <t-activity-option-constructor></t-activity-option-constructor>    
 
 @demo demo/index.html
 -->
-<dom-module id="t-activity-result-constructor">
+<dom-module id="t-activity-option-constructor">
     <template>
         <style>
             :host {
@@ -25,7 +25,7 @@ Example:
 
             Polymer({
 
-                is: 't-activity-result-constructor',
+                is: 't-activity-option-constructor',
 
                 behaviors: [
                     TravelNxt.Behaviors.PageBehavior,
@@ -34,7 +34,7 @@ Example:
 
                 properties: {
 
-                    searchId: {
+                    itineraryId: {
                         type: 'String'
                     },
 
@@ -46,11 +46,11 @@ Example:
                 },
 
                 observers: [
-                    '__pageLoad(searchId)'
+                    '__pageLoad(itineraryId)'
                 ],
 
-                __pageLoad: function (searchId) {
-                    if (!searchId) {
+                __pageLoad: function (itineraryId) {
+                    if (!itineraryId) {
                         return;
                     }
 
@@ -59,12 +59,12 @@ Example:
 
                 _construct: function () {
 
-                    if (!this.searchId) {
-                        throw Error("'searchId' is empty!");
+                    if (!this.itineraryId) {
+                        throw Error("'itineraryId' is empty!");
                     }
 
                     this._setConstructorObj({
-                        searchId: this.searchId
+                        itineraryId: this.itineraryId
                     });
                 }
             });
