@@ -38,7 +38,7 @@ Example:
                         type: 'String'
                     },
 
-                    constructor: {
+                    constructorObj: {
                         type: Object,
                         readOnly: true,
                         notify: true
@@ -63,7 +63,7 @@ Example:
                         throw Error("Either 'authToken', 'searchId' or 'apiBaseUrl' is empty!");
                     }
 
-                    this._setConstructor({
+                    this._setConstructorObj({
                         searchId: this.searchId
                     });
                 }
