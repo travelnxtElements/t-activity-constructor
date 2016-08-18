@@ -33,7 +33,12 @@ Example:
                 ],
 
                 properties: {
-                    _constructor: {
+
+                    searchId: {
+                        type: 'String'
+                    },
+
+                    constructor: {
                         type: Object,
                         readOnly: true,
                         notify: true
@@ -41,11 +46,11 @@ Example:
                 },
 
                 observers: [
-                    '__pageLoad(visible)'
+                    '__pageLoad(searchId)'
                 ],
 
-                __pageLoad: function (visible) {
-                    if (!visible) {
+                __pageLoad: function (searchId) {
+                    if (!searchId) {
                         return;
                     }
 
@@ -53,18 +58,13 @@ Example:
                 },
 
                 _construct: function () {
-                    if (!this.visible) {
-                        throw Error('Constructor is not visible!');
-                    }
 
-                    if (!this.authToken || !this.searchId || !this.apiBaseUrl) {
+                    if (!this.searchId) {
                         throw Error("Either 'authToken', 'searchId' or 'apiBaseUrl' is empty!");
                     }
 
-                    this._set_constructor({
-                        authToken: this.authToken, 
-                        searchId: this.searchId, 
-                        apiBaseUrl: this.apiBaseUrl
+                    this._setConstructor({
+                        searchId: this.searchId
                     });
                 }
             });
